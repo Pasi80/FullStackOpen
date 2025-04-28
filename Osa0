@@ -1,1 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link href="CSS/Style.css" rel="stylesheet" />
+        <title>My test page</title>
+    </head>
+    <body>
+        <h1>Picture From Tansania</h1>
+        <img src="images/Ngorongoro.jpg" alt="Ngorongoro Crater in Tansania" />
+        <br>
+        <p>Went to see something you can't see in Finland, like example:</p>
 
+        <ul>
+            <li>Kiraffe</li>
+            <li>Hyena</li>
+            <li>Lion</li>
+            <li>Flamingo</li>
+        </ul>
+        <br>
+        <ol>
+            <li>Lion</li>
+            <li>Flamingo</li>
+            <li>Kiraffe</li>
+            <li>Hyena</li>
+        </ol>
+        <br>
+        <p>Here you can read more about the place called <a href="https://www.ngorongorocratertanzania.org/">Ngorongoro Crater</a> </p><!-- <a> comes from anchor & href from Hypertext reference-->
+
+    </body>
+</html>
