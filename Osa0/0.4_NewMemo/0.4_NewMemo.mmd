@@ -1,0 +1,43 @@
+sequenceDiagram
+
+  participant A as Client
+  participant B as Browser
+  participant C as Server
+
+  box rgb(134, 47, 18) Client & Browser
+  participant A
+  participant B
+  end
+
+
+note right of A: Write "Ball" on the form &<br> push enter to save
+note over B,C: the browser sends & store data to the Server.<br> In form element we have defined where to send data & how to handle it:<br>action="exampleapp/new_note" method="POST"
+
+
+B->>C: Browser make a POST reguest to<br> https://studies.cs.helsinki.fi/exampleapp/new_note
+activate C
+note right of C: Server have a Javascript code to handle the POST<br> request<br>-> code will receive,<br> stoare & finally respond<br> to Client<br> (return res.redirect('/notes')
+C-->>B: Server respond Status Code: 302 --> It's causes redirecting,<br> method="GET" & location is notes.<br>So Browser re-download<br>https://studies.cs.helsinki.fi/exampleapp/notes
+deactivate C
+
+note right of B: So Click save button causes five HTTP reguest:<br> - new_note.document<br>- notes.document<br>-main.css<br>- main.js<br>-data.json
+
+B->>C:<br><br> Get request https://studies.cs.helsinki.fi/exampleapp/main.css
+activate C
+C-->>B: Css file
+deactivate C
+
+B->>C:<br><br> Get request https://studies.cs.helsinki.fi/exampleapp/main.js
+activate C
+C-->>B: Javascript file
+deactivate C
+
+
+note over B,C: Javascript start to execute the code that fetches the JSON from the server
+
+
+
+B->>C: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+activate C
+C-->>B: "Notes" data is sended back to Client
+deactivate C
