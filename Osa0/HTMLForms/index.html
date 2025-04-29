@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>My Test Page</title>
+        <link href="FormStyle.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <p>This Is My Page</p>
+        <br>
+
+        <form action="/my-handling-form-page" method="post">
+
+            <p>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="user_name" /> <!-- Void Elements (ex. input) cannot have child nodes or end tags https://developer.mozilla.org/en-US/docs/Glossary/Void_element -->
+            </p>
+            <p>
+                <label for="mail">Email:</label>
+                <input type="email" id="mail" name="user_email" />
+            </p>
+            <p>
+                <label for="message">Message:</label>
+                <textarea id="msg" name="user_message"></textarea>
+            </p>
+
+            <p class="button">
+                <button type="submit">Send your message</button>
+            </p>
+
+        </form> <!-- Action tells the adress (URL) where the form's colledted data should be sent (I have no adress now so it is empty)-->
+
+        
+    </body>
+</html>
