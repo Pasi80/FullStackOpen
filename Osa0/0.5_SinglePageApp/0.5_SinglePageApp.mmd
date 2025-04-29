@@ -1,0 +1,22 @@
+sequenceDiagram
+
+  participant A as Client
+  participant B as Browser
+  participant C as Server
+
+  box rgb(134, 47, 18) Client & Browser
+  participant A
+  participant B
+  end
+
+  A->>B: Client write URL:<br> https://studies.cs.helsinki.fi/exampleapp/spa 
+  
+  
+  B->>C: Browser sends request to server
+   
+  activate C
+  C-->>B: Server respond & open<br>https://studies.cs.helsinki.fi/exampleapp/spa 
+
+  note left of B: This time the page<br> is using SPA style,<br> and the Network tab<br>is empty
+  deactivate C
+
