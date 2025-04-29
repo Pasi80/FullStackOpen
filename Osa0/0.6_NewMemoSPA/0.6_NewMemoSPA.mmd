@@ -1,0 +1,32 @@
+sequenceDiagram
+
+  participant A as Client
+  participant B as Browser
+  participant C as Server
+
+  box rgb(64, 82, 57) Client & Browser
+  participant A
+  participant B
+  end
+
+  note right of A: Write the URL: https://studies.cs.helsinki.fi/exampleapp/spa
+
+  activate C
+  B->>C: Browser send a request to server
+  C-->>B: Server send Html, spa.js, .css<br>(unable to see these files in Network tab) ???
+  deactivate C
+
+  note right of A: " Write a "Single Page app" in the form input element "
+
+  activate C
+  B->>C: Initially loaded Javascript code Read, store & send the data : <br> https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+  note over B: var form = document.getElementById('notes_form')<br>form.onsubmit = function(e) {<br>e.preventDefault()<br><br>var note = {<br><br>content: e.target.elements[0].value,<br>date: new Date(),<br>}<br>notes.push(note)<br>e.target.elements[0].value = ''<br>redrawNotes()<br>sendToServer(note)<br>}
+  
+  
+  
+  C-->>B: Server respond
+  note left of C: Status code: 201 created 
+  deactivate C
+
+  note right of A: Client resaw a list of notes<br>where<br>the last one is his own
+
